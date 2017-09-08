@@ -1,0 +1,230 @@
+/*
+ *= require jquery-ui
+ */
+
+:scss
+
+    html, body {
+        margin:0;
+        padding:0;
+    }
+    .fa.fa-trash {
+        font-size: 50px;
+        position: fixed;
+        top: 10px;
+        right: 27px;
+        z-index: 1;
+        border-radius: 20%;
+    }
+    .panel {
+        background-color:#fff;
+        border:solid 2px #000;
+        box-shadow:0 6px 6px -6px #000;
+        display:inline-block;
+        flex:1 1;
+        height:200px;
+        margin:1vmin;
+        overflow:hidden;
+        position:relative;
+        flex-basis: 200px;
+        // draggable: true;
+    }
+
+    .text {
+        background-color:#fff;
+        border:solid 2px #000;
+        margin:0;
+        padding:3px 10px;
+    }
+
+    .top-left {
+        left:-6px;
+        position:absolute;
+        top:-2px;
+    }
+    
+    .top-right {
+        right: -6px;
+        position:absolute;
+        top:-2px;
+    }
+
+    .bottom-right {
+        bottom:-2px;
+        position:absolute;
+        right:-6px;
+    }
+    
+    .bottom-left {
+        left: -6px;
+        position:absolute;
+        bottom:-2px;
+    }
+
+    .speech {
+        background-color:#fff;
+        border:solid 2px #000;
+        border-radius:12px;
+        display:inline-block;
+        margin:.5em;
+        padding:.5em 1em;
+        position:relative;
+    }
+
+    .speech:before {
+        border:solid 12px transparent;
+        border-left:solid 12px #000;
+        border-top:solid 12px #000;
+        bottom:-24px;
+        content:"";
+        height:0;
+        left:24px;
+        position:absolute;
+        width:0;
+     }
+
+    .speech:after {
+        border:solid 10px transparent;
+        border-left:solid 10px #fff;
+        border-top:solid 10px #fff;
+        bottom:-19px;
+        content:"";
+        height:0;
+        left:27px;
+        position:absolute;
+        width:0;
+    }
+
+
+    .panel:nth-child(1) {
+        flex-basis: 400px;
+    }
+    .panel:nth-child(2) {
+       flex-basis: 200px;
+    }
+    .panel:nth-child(3) {
+        flex-basis: 200px;
+    }
+    .panel:nth-child(4) {
+        flex-basis: 200px;
+    }
+    .panel:nth-child(5) {
+        flex-basis: 200px;
+    }
+    .panel:nth-child(6) {
+        flex-basis: 200px;
+    }
+    .panel:nth-child(7) {
+        flex-basis: 400px;
+    }
+    .panel:nth-child(8) {
+       flex-basis: 200px;
+    }
+    .panel:nth-child(9) {
+       flex-basis: 200px;
+    }
+    .panel:nth-child(2n) {
+        flex-basis: 400px;
+    }
+    .panel:nth-child(3n) {
+       flex-basis: 400px;
+    }
+    .panel:nth-child(5n) {
+       flex-basis: 200px;
+    }
+
+    .panel:nth-child(4n+1) {
+        background-image:radial-gradient(circle, yellow, orange);
+    }
+
+    .panel:nth-child(4n+2) {
+        background-image:radial-gradient(circle, lightblue, deepskyblue);
+    }
+
+    .panel:nth-child(4n+3) {
+        background-image:radial-gradient(circle, palegreen, yellowgreen);
+    }
+
+    .panel:nth-child(4n+4) {
+        background-image:radial-gradient(circle, lightcoral, tomato);
+    } 
+    
+    #myBtn {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+    }
+    
+    #hello {
+        position:fixed; 
+        right: 10px; 
+        bottom: 10px;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    
+    .mode {
+        display: none;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close {
+        &:hover, &:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    
+    .closetwo {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .closetwo {
+        &:hover, &:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    
+    .deletebutton {
+        background-color: red; /* Green */
+        border: none;
+        color: white;
+        padding: 2% 5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }

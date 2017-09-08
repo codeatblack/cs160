@@ -1,0 +1,172 @@
+%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+= flash[:notice]
+%button.btn.default#myBtn +
+%i.fa.fa-trash#trash
+// %button.w3-button.w3-xlarge.w3-circle.w3-black#trash
+//     %img{:src => "ic_delete_black_24px.svg", :style => "width:35px;height:35px;"}/
+%article.comic
+    - @entries.each do |entry|
+        .panel
+            %p.text.top-left= entry.date
+            %p.text.bottom-right= entry.caption
+            %p.text.top-right= entry.workout
+            %img{:src => entry.hero, :height => "100%", :width => "100%"}/
+            
+#myModaltwo.modal
+    .modal-content
+        %span.closetwo ×
+        %span.edit 
+        %span.mode null
+
+        %table.table.table-striped
+            %thead.thead
+                %tr
+                    %th Caption
+                    %th Date
+                    %th Delete
+            %tbody
+                - @entries.reverse_each do |entry|
+                    %tr
+                        %td= entry.caption.to_s
+                        %td= entry.date.to_s
+                        %td 
+                            =link_to "Delete",  delete_journal_path(:id => entry.id), :method => 'delete', class: "deletebutton"
+        
+
+#myModal.modal
+    .modal-content
+        %span.close ×
+        %span.edit 
+        %span.mode null
+            
+        
+        .form-group
+            = form_tag update_journal_path, :multipart => true do
+                .form-group9
+                    %p
+                        = label :entry, :workout, 'Workout Type'
+                    %select{:name => "workout"}
+                        %option{:value => "Arms"} Arms
+                        %option{:value => "Chest"} Chest
+                        %option{:value => "Back"} Back
+                        %option{:value => "Legs"} Legs
+                        %option{:value => "Buns"} Buns
+                        %option{:value => "Calves"} Calves
+                        %option{:value => "Running"} Running
+                        %option{:value => "Swimming"} Swimming
+                        %option{:value => "Hiking"} Hiking
+                        %option{:value => "Basketball"} Basketball
+                        %option{:value => "Yoga"} Yoga
+                        %option{:value => "Stretching"} Stretching
+                        %option{:value => "Pilates"} Pilates
+                        %br
+                    %p
+                        %br
+                        = label :entry, :date, 'Date'
+                    %p
+                        = text_field :entry, 'date', class: 'form-control', value: (Time.now.utc - 25200).strftime('%m/%d/%Y')
+                    %p
+                        = label :entry, :time, 'Time'
+                    %p
+                        = text_field :entry, 'time', class: 'form-control', value: (Time.now.utc - 25200).strftime('%I:%M %p')
+                    %p
+                        = label :entry, :caption, 'Caption'
+                    %p
+                        = text_field :entry, 'caption', class: 'form-control', placeholder: 'Required'
+                    %p
+                        = label :entry, :picture, 'Picture'
+                    %p
+                        = file_field_tag 'picture'
+                = submit_tag 'Submit', class: 'btn btn-success'
+
+:coffeescript
+    # Get the modal
+    modal = document.getElementById('myModal')
+    
+    # Get the button that opens the modal
+    btn = document.getElementById('myBtn')
+    
+    # Get the <span> element that closes the modal
+    close = document.getElementsByClassName('close')[0]
+    
+    # When the user clicks on the button, open the modal 
+    btn.onclick = ->
+        modal.style.display = 'block'
+        return
+
+    # When the user clicks on <span> (x), close the modal
+
+    close.onclick = ->  
+        modal.style.display = 'none'
+        return
+        
+    edit = document.getElementsByClassName("edit")[0]
+    
+    edit.onclick = (event) ->
+        console.log event.target
+    
+    menu = document.getElementById "menu"
+    menuStyle = window.getComputedStyle menu
+    color = menuStyle.color
+    bgColor = menuStyle.backgroundColor
+    console.log [color, bgColor]
+    
+    # Get the modal
+    modaltwo = document.getElementById('myModaltwo')
+    
+    # Get the button that opens the modal
+    btntwo = document.getElementById('trash')
+    
+    # Get the <span> element that closes the modal
+    closetwo = document.getElementsByClassName('closetwo')[0]
+    
+    # When the user clicks on the button, open the modal 
+    btntwo.onclick = ->
+        modaltwo.style.display = 'block'
+        return
+
+    # When the user clicks on <span> (x), close the modal
+
+    closetwo.onclick = ->  
+        modaltwo.style.display = 'none'
+        return
+        
+    edit = document.getElementsByClassName("edit")[0]
+    
+    edit.onclick = (event) ->
+        console.log event.target
+        
+
+    # When the user clicks anywhere outside of the modal, close it
+
+    window.onclick = (event) ->
+        if event.target == modal
+            modal.style.display = 'none'
+        return
+    
+    # For future reference
+    #    $("#myBtn").toggleClass("red-button")
+
+        
+:scss
+    @import url('https://fonts.googleapis.com/css?family=Fresca');
+
+    .comic {
+        display:flex;
+        flex-wrap:wrap;
+        font-family: 'Fresca', sans-serif;
+        padding:1vmin;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    table, td, th {
+        border: 1px solid black;
+    }
+    
+    th {
+        text-align: left;
+    }

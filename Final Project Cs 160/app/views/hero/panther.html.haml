@@ -1,0 +1,135 @@
+%head
+  %meta{:content => "width=device-width, user-scalable=no", :name => "viewport"}/
+  %body#two
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto", :rel => "stylesheet"}
+      
+    #chart
+
+  
+
+  
+
+:scss
+  @import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC|Bangers|Happy+Monkey);
+  
+  #two{
+    background-image: url("../Black_Panther_page.png") !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  #textbox1{
+    background-color: black;
+    width: 300px;
+    border: 50px solid green;
+  }
+  
+  #chart {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    left: -5%;
+  }
+  .legend, .axisLabel, .tooltip {
+    font-family: sans-serif;
+    fill: red;
+    font-size: 50%;
+    text-shadow:
+      -2px -2px 0 #000,  
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000;
+  }
+  
+  #hulk-gifs {
+    position: absolute;
+    top: 200px;
+    left: 220px;
+    z-index: 2;
+  }
+  
+  .header {
+    background-color: grey;
+    text-align: center;
+    font-family: "Bangers", sans-serif;
+    font-size: 90px; 
+    text-shadow: -1px -1px black, 1px 1px black,  2px 2px black;
+    font-weight: 400;
+    color: white;
+  }
+  
+  .column1 {
+    background-color: white;
+    text-align: center;
+    height: 100%
+  }
+  
+  .column2 {
+    background-color: green;
+    text-align: center;
+    height: 100%
+  }
+  
+  .column3 {
+    background-color: yellow;
+    text-align: center;
+    height: 100%
+  }
+
+:javascript
+  var cardio = "#{@cardio}";
+  var strength = "#{@strength}";
+  var flex = "#{@flex}";
+  var upper = "#{@upper}";
+  var core = "#{@core}";
+  var lower = "#{@lower}";
+  var max = "#{@max}";
+
+:coffeescript
+
+  w = 170;
+  h = 170;
+  d = [ [
+    {
+      axis: 'Cardio\nMAX'
+      value: cardio
+    }
+    {
+      axis: 'Core'
+      value: core
+    }
+    {
+      axis: 'Upper'
+      value: upper
+    }
+    {
+      axis: 'Strength'
+      value: strength
+    }
+    {
+      axis: 'Lower'
+      value: lower
+    }
+    {
+      axis: 'Flexibility'
+      value: flex
+    }
+  ] ]
+  
+  mycfg = 
+    w: w
+    h: h
+    margin: {top: 100, left: 100, right: 100, bottom: 100}
+    maxValue: max
+    labelFactor: 1.2
+    levels: 5
+    roundStrokes: true
+    color: '#de3e35'
+
+  RadarChart '#chart', d, mycfg
+    
+
