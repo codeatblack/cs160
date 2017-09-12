@@ -1,0 +1,93 @@
+:coffeescript
+    $ ->
+        $(document).bind 'touchmove', (e)->
+            e.preventDefault()
+           
+        # TouchEmulator()
+        console.warn "IS HAMMER INSTALLED?", Hammer
+        myPanHandler = (e)->
+            console.log "PAN"
+            $('#touchpad h2').html("PANNING")
+        mySwipeHandler = (e)->
+            console.log "SWIPING"
+            $('#touchpad h2').html("SWIPPING") 
+        myPressHandler = (e)->
+            console.log "PRESS"
+            $('#touchpad h2').html("PRESS")
+        myTapHandler = (e)->
+            console.log "TAP"
+            $('#touchpad h2').html("TAP")
+        myRotateHandler = (e)->
+            console.log "ROTATE"
+            $('#touchpad h2').html("ROTATE")
+        myPinchHandler = (e)->
+            console.log "PINCH"
+            $('#touchpad h2').html("PINCH")
+            
+        #$("#touch-square").hammer({}).bind("pan", myPanHandler);
+        #$("#touch-square").hammer({}).bind("swipe", mySwipeHandler);
+        #$("#touch-square").hammer({}).bind("press", myPressHandler);
+        #$("#touch-square").hammer({}).bind("tap", myTapHandler);
+        $("#touch-square").hammer({
+            enable: true
+        }).bind("pinch", myPinchHandler);
+        $("#touch-square").hammer({
+            enable: true
+        }).bind("rotate", myRotateHandler);
+        
+        $('#touch-square').data('hammer').recognizers[0].options.enable = true
+        $('#touch-square').data('hammer').recognizers[1].options.enable = true
+        $('#touch-square').data('hammer').recognizers[0].recognizeWith($('#touch-square').data('hammer').recognizers[1])
+:javascript
+    // myElement = document.getElementById('touch-square')
+    // mc = new (Hammer.Manager)(myElement)
+    // pinch = new (Hammer.Pinch)
+    // rotate = new (Hammer.Rotate)
+    // pinch.recognizeWith rotate
+    // mc.add [
+    //     pinch
+    //     rotate
+    // ]
+    // mc.on 'pinch rotate', (ev) ->
+    //     myElement.textContent += ev.type + ' '
+    //     return
+        
+#touchpad
+    #touch-square
+    %h2 TOUCH ME!
+    
+:scss
+    $touchpad-bg: desaturate(green, 70%);
+    $touch-square: lighten($touchpad-bg, 70%);
+    body, html{
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        overflow: hidden;
+    }
+    #touchpad{
+        height: 100%;
+        width: 100%;
+        color: white;
+        font-family: Avenir, sans-serif;
+        font-size: 4em;
+        text-align: center;
+            
+        background: $touchpad-bg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        #touch-square{
+            width: 150px;
+            height: 150px;
+            background: $touch-square;
+        }
+    }
+    #back-button{
+        position: absolute;
+        z-index: 100;
+        top: 15px;
+        left: 15px;
+    }
+    

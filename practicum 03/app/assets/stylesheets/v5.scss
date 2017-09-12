@@ -1,0 +1,247 @@
+// Place all the styles related to the v5 controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$background: #88499c;
+$block: #e78024;
+
+// .flexbox-container{
+//     background: $background;
+//     height: 100%;
+//     width: 100%;
+// }
+// .flex-block{
+//     background: #e78024;
+//     width: 100px;
+//     height: 50px;
+//     margin: 20px;
+// }
+
+//colors
+$color_persimmon_approx: tomato;
+$white: white;
+
+.flex-container {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+
+}
+.nowrap {
+	justify-content: space-between;
+	flex-grow: 1;
+}
+.center {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.flex-items {
+	background: $color_persimmon_approx;
+	padding: 5px;
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	line-height: 100px;
+	color: $white;
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+}
+
+.flex-item {
+  background: none;
+  padding: 5px;
+  width: 145px;
+  height: 145px;
+  margin: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  justify-content: center;
+
+}
+
+
+
+.flex-container {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+
+}
+.v5e {
+	flex-wrap: wrap;
+}
+.flex-itemz {
+	background: $color_persimmon_approx;
+	padding: 50px;
+	width: 9000px;
+	height: 230px;
+	margin: 10px;
+	line-height: 1000px;
+	color: $white;
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+	align-content: center;
+	justify: center;
+}
+
+.flex-itm {
+  background: none;
+  padding: 20px;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+
+.flex-itmz {
+  background: tomato;
+  padding: 5px;
+  width: 100px;
+  height: 1000px;
+  margin: 10px;
+  
+  flex-grow: 10;
+
+  
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  align-items: center;
+
+}
+
+
+.box1 {
+	background: rgb(214,41,41);
+	@extend .flex-item ;
+}
+.box2 {
+	background: #21dede; 
+	@extend .flex-item ;
+}
+.box3 {
+	background: #a95656;
+	@extend .flex-item ;
+}
+.box4 {
+	background: #4cb3b3;
+	@extend .flex-item ;
+}
+.box5 {
+	background: #e2c6c6;
+	@extend .flex-item ;
+}
+.box6 {
+	background: #db7070;
+	@extend .flex-item ;
+}
+.box7 {
+	background: #391d1d;
+	@extend .flex-item ;
+}
+.box8 {
+	background: #69e1e1;
+	@extend .flex-item ;
+}
+.box9 {
+	background: #c2e5e5;
+	@extend .flex-item ;
+}
+
+.box10 {
+	background: #4cb3b3;
+	@extend .flex-item ;
+}
+
+.box11 {
+	background: #0055ff;
+	@extend .flex-item ;
+
+}.box12 {
+	background: #ffaa00;
+	@extend .flex-item ;
+}.box13 {
+	background: #3b69c4;
+	@extend .flex-item ;
+}.box14 {
+	background: #e3a11c;
+	@extend .flex-item ;
+}.box15 {
+	background: #cbd1dd;
+	@extend .flex-item ;
+}.box16 {
+	background: #7c98cf;
+	@extend .flex-item ;
+}.box17 {
+	background: #222834;
+	@extend .flex-item ;
+}.box18 {
+	background: #eddcbb;
+	@extend .flex-item ;
+}
+.box19 {
+	background: #e8bc64;
+	@extend .flex-item ;
+}
+.box20 {
+	background: #c99836;
+	@extend .flex-item ;
+}
+.box21 {
+	background: yellow;
+	@extend .flex-item ;
+}
+.box22 {
+	background: #002bff; 
+	@extend .flex-item ;
+}
+.box23 {
+	background: #e3c21c;
+	@extend .flex-item ;
+}
+.box24 {
+	background: #3b52c4;
+	@extend .flex-item ;
+}
+.box25 {
+	background: #ede4bb;
+	@extend .flex-item ;
+}
+.box26 {
+	background: #e8d164;
+	@extend .flex-item ;
+}
+.box27 {
+	background: #443c12;
+	@extend .flex-item ;
+}
+.box28 {
+	background: #cbcedd;
+	@extend .flex-item ;
+}
+.box29 {
+	background: #7c8acf;
+	@extend .flex-item ;
+}
+
+.box30 {
+	background: #656e9a;
+	@extend .flex-item ;
+}
